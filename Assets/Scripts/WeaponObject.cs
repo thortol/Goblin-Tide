@@ -7,12 +7,12 @@ public class WeaponObject : MonoBehaviour
 	private Rigidbody2D rb;
 	public Transform trf;
 	public Sprite img;
-
+	public float lifetime;
 
 	private void Awake()
 	{
 		rb = gameObject.GetComponent<Rigidbody2D>();
-		
+		this.gameObject.SetActive(true);
 	}
 
 	// Start is called before the first frame update
@@ -24,12 +24,13 @@ public class WeaponObject : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log(GameManager.instance.GetWallHp());
-	}
+		if(lifetime <= 0.0f)
+		{
+			this.gameObject.SetActive(false);
+		}
 
-	IEnumerator doDamage()
-	{
-		yield break;
+
+		lifetime -= Time.deltaTime;
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
