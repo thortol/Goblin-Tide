@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public WaveManager waveManager;
+    public HPManager hpManager;
 
     public int wallHp = 100;
 	// Start is called before the first frame update
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         wallHp = setthis;
     }
+
 
     public int GetWallHp()
     {

@@ -23,6 +23,7 @@ public class EnemyMove : MonoBehaviour
         {
             GameManager.instance.SetWallHp(GameManager.instance.GetWallHp() - damage);
             lastInstance = Time.realtimeSinceStartup;
+            GameManager.instance.hpManager.updateHP();
         }
     }
 

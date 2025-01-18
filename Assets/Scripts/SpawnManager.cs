@@ -14,11 +14,6 @@ public class SpawnManager : MonoBehaviour
         box = gameObject.GetComponent<BoxCollider2D>();
         low = box.bounds.center.y - box.bounds.size.y/2;
         high = box.bounds.center.y + box.bounds.size.y/2;
-        Debug.Log(low);
-        Debug.Log(high);
-        Debug.Log(box.bounds.center.y);
-        Debug.Log(box.bounds.size.y / 2);
-        Debug.Log(box.bounds.size.y);
     }
 
     public void spawn()
