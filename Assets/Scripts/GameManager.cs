@@ -5,14 +5,24 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public WaveManager waveManager;
 
     public int wallHp = 100;
 	// Start is called before the first frame update
 
 	private void Awake()
 	{
-        instance = new GameManager();
-	}
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
 
 	void Start()
     {
